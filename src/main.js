@@ -4,6 +4,8 @@ import router from "./router";
 import axios from "axios";
 
 axios.defaults.baseURL =
-  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://frontend-take-home.fetchrewards.com";
+  process.env.NODE_ENV === "development"
+    ? "https://frontend-take-home.fetchrewards.com"
+    : "https://frontend-take-home.fetchrewards.com";
 
 createApp(App).use(router).mount("#app");
