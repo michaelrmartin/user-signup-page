@@ -6,32 +6,31 @@ export default {
     return {
       selected: null,
       newUserParams: {},
-      occupations: [],
-      states: [],
+      options: {},
       errors: [],
-      message: "",
+      successMessage: "",
+      errorMessage: "",
     };
   },
   created: function () {
-    this.indexOccupations();
-    this.indexStates();
+    this.indexOptions();
   },
   methods: {
-    indexOccupations: function () {
-      axios.get("/form").then((response) => {
-        this.occupations = response.data.occupations;
-        console.log(response);
-        console.log("All occupations:", response.data.occupations);
-      });
+    indexOptions: function () {
+      axios
+        .get("/form")
+        .then((response) => {
+          this.options = response.data;
+          console.log(response);
+          console.log("Options:", response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          this.errors = error.response.data.errors;
+          this.errorMessage = error.response.statusText;
+        });
     },
-    indexStates: function () {
-      axios.get("/form").then((response) => {
-        this.states = response.data.states;
-        console.log(response);
-        console.log("All States:", response.data.states);
-      });
-    },
-    submit: function () {
+    createUser: function () {
       axios
         .post("/form", this.newUserParams)
         .then((response) => {
@@ -51,11 +50,8 @@ export default {
 
 <template>
   <div class="container" style="width: 60%">
-    <form v-on:submit.prevent="submit()">
+    <form v-on:submit.prevent="createUser()">
       <h1>Create User</h1>
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
       <div class="form-group mb-3">
         <label for="signupNameInput" class="form-label">Name</label>
         <input type="text" class="form-control" id="signupNameInput" v-model="newUserParams.name" required />
@@ -77,20 +73,32 @@ export default {
       <div class="form-group mb-3">
         <label for="signupOccupationInput" class="form-label">Occupation</label>
         <select class="form-control" id="signupOccupationInput" v-model="newUserParams.occupation" required>
-          <option v-for="occupation in occupations" v-bind:key="occupation.id">{{ occupation }}</option>
+          <option v-for="occupation in options.occupations" v-bind:key="occupation.id">{{ occupation }}</option>
         </select>
       </div>
       <div class="form-group mb-3">
         <label for="signupStateInput" class="form-label">State</label>
         <select class="form-control" id="signupStateInput" v-model="newUserParams.state" required>
-          <option v-for="state in states" v-bind:key="state.id">{{ state.name }}</option>
+          <option v-for="state in options.states" v-bind:key="state.id">{{ state.name }}</option>
         </select>
       </div>
+      <ul v-if="errorMessage">
+        <li>{{ errorMessage }}</li>
+      </ul>
       <br />
       <button type="submit" class="btn btn-secondary">Submit</button>
       <br />
       <br />
-      <h2 v-if="submit && message">{{ message }}</h2>
+      <h2 v-if="createUser && successMessage">{{ successMessage }}</h2>
     </form>
   </div>
 </template>
+
+<style>
+li {
+  list-style-type: none;
+  color: red;
+  font-size: large;
+  font-weight: bold;
+}
+</style>
