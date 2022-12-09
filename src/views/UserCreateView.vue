@@ -5,10 +5,30 @@ export default {
   data: function () {
     return {
       newUserParams: {},
+      occupations: [],
+      states: [],
       errors: [],
     };
   },
+  created: function () {
+    this.indexOccupations();
+    this.indexStates();
+  },
   methods: {
+    indexOccupations: function () {
+      axios.get("/form").then((response) => {
+        this.occupations = response.data.occupations;
+        console.log(response);
+        console.log("All occupations:", response.data.occupations);
+      });
+    },
+    indexStates: function () {
+      axios.get("/form").then((response) => {
+        this.states = response.data.states;
+        console.log(response);
+        console.log("All States:", response.data.states);
+      });
+    },
     submit: function () {
       axios
         .post("/form", this.newUserParams)
