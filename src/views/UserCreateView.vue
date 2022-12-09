@@ -9,6 +9,7 @@ export default {
       occupations: [],
       states: [],
       errors: [],
+      message: "",
     };
   },
   created: function () {
@@ -35,7 +36,8 @@ export default {
         .post("/form", this.newUserParams)
         .then((response) => {
           console.log(response);
-          console.log(response.data);
+          console.log("Success:", response.data);
+          this.message = "User successfully created!";
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
@@ -82,7 +84,11 @@ export default {
           <option v-for="state in states" v-bind:key="state.id">{{ state.name }}</option>
         </select>
       </div>
+      <br />
       <button type="submit" class="btn btn-secondary">Submit</button>
+      <br />
+      <br />
+      <h2 v-if="submit && message">{{ message }}</h2>
     </form>
   </div>
 </template>
