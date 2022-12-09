@@ -41,6 +41,7 @@ export default {
           this.newUserParams = {};
         })
         .catch((error) => {
+          console.log(error);
           this.errors = error.response.data.errors;
         });
     },
@@ -55,15 +56,15 @@ export default {
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="signupNameInput" class="form-label">Name</label>
         <input type="text" class="form-control" id="signupNameInput" v-model="newUserParams.name" required />
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="signupEmailInput" class="form-label">Email</label>
         <input type="email" class="form-control" id="signupEmailInput" v-model="newUserParams.email" required />
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="signupPasswordInput" class="form-label">Password</label>
         <input
           type="password"
@@ -73,13 +74,13 @@ export default {
           required
         />
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="signupOccupationInput" class="form-label">Occupation</label>
         <select class="form-control" id="signupOccupationInput" v-model="newUserParams.occupation" required>
           <option v-for="occupation in occupations" v-bind:key="occupation.id">{{ occupation }}</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="signupStateInput" class="form-label">State</label>
         <select class="form-control" id="signupStateInput" v-model="newUserParams.state" required>
           <option v-for="state in states" v-bind:key="state.id">{{ state.name }}</option>
