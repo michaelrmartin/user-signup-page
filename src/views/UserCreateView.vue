@@ -38,6 +38,7 @@ export default {
           console.log(response);
           console.log("Success:", response.data);
           this.message = "User successfully created!";
+          this.newUserParams = {};
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
