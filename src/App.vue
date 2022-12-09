@@ -2,7 +2,7 @@
   <nav>
     <router-link to="/">Home</router-link>
     |
-    <router-link to="/usercreate">User Create</router-link>
+    <router-link to="/usercreate">Create User</router-link>
   </nav>
   <router-view />
 </template>
