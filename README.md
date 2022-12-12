@@ -1,8 +1,10 @@
 <h1 align="center">User Creation Page</h1>
 
+![Preview Screenshot](/Create%20User%20Page%20Screenshot.png)
+
 <div align="center">
   <h3>
-    <a href="/" color="white">
+    <a href="https://resplendent-lily-e35069.netlify.app/" color="white">
       Live
     </a>
     </h3>
