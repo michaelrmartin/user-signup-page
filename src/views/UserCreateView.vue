@@ -50,7 +50,7 @@ export default {
 
 <template>
   <div class="container" style="width: 60%">
-    <h1>Create User</h1>
+    <h1>Create New User</h1>
     <br />
     <form class="row g-3" v-on:submit.prevent="createUser()">
       <div class="mb-3 col-md-12">
@@ -103,12 +103,13 @@ export default {
 <style>
 h1 {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-weight: bold;
 }
 form {
   padding: 5%;
   border-style: solid;
   border-width: 2px;
-  background-color: lightskyblue;
+  background-color: rgb(159, 215, 250);
 }
 .form-label {
   font-weight: bold;

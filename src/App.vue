@@ -25,6 +25,10 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 body {
-  background-color: turquoise;
+  background-color: skyblue;
+  background-image: url("https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 </style>
