@@ -26,3 +26,4 @@
 - JavaScript
 - HTML
 - CSS
+- Grid
