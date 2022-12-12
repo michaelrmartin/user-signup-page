@@ -49,7 +49,7 @@ export default {
 </script>
 
 <template>
-  <div class="container" style="width: 80%">
+  <div class="container" style="width: 60%">
     <h1>Create User</h1>
     <br />
     <form class="row g-3" v-on:submit.prevent="createUser()">
