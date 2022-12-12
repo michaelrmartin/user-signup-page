@@ -6,6 +6,7 @@
       Live
     </a>
     </h3>
+</div>
 <br>
 <br>
 <br>

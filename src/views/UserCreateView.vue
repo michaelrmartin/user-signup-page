@@ -104,14 +104,11 @@ export default {
 h1 {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
 }
-body {
-  background-color: turquoise;
-}
 form {
   padding: 5%;
   border-style: solid;
   border-width: 2px;
-  background-color: paleturquoise;
+  background-color: lightskyblue;
 }
 .form-label {
   font-weight: bold;
