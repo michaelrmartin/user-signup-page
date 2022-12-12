@@ -70,12 +70,6 @@ export default {
           v-model="newUserParams.password"
           required
         />
-        <small class="text-danger" v-if="newUserParams.password && newUserParams.password.length < 6">
-          Must be at least 6 characters
-        </small>
-        <small class="text-danger" v-if="newUserParams.password && newUserParams.password.length > 20">
-          Must not be over 20 characters
-        </small>
       </div>
       <div class="mb-3 col-8">
         <label for="signupOccupationInput" class="form-label d-block text-start">Occupation</label>
@@ -107,10 +101,21 @@ export default {
 </template>
 
 <style>
+h1 {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+}
+body {
+  background-color: turquoise;
+}
 form {
   padding: 5%;
   border-style: solid;
   border-width: 2px;
+  background-color: paleturquoise;
+}
+.form-label {
+  font-weight: bold;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
 }
 .show {
   transition: all 0.5s ease;
