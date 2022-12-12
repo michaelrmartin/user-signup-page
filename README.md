@@ -15,7 +15,7 @@
 
 ## About The Project
 
-<br><br>This site should:
+<br>This site should:
 <br>1. Display a form with inputs for "Name", "Email", "Password", "Occupation", and "State".
 <br>2. "Occupation" and "State" should allow users to select from options returned by an endpoint. Users should only be able to select one occupation and one state.
 <br>3. Not allow form submission without completing the entire form.
@@ -25,7 +25,7 @@
 ## Built with
 
 - Vue.js
-- Boostrap
+- Boostrap v5.2.3
 - JavaScript
 - HTML
 - CSS
