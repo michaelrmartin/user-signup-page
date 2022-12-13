@@ -7,6 +7,7 @@ export default {
       selected: null,
       newUserParams: {},
       options: {},
+      error: false,
       errors: [],
       success: false,
       isLoading: false,
@@ -23,7 +24,8 @@ export default {
           this.options = response.data;
         })
         .catch((error) => {
-          this.errors = error.response.data.errors;
+          this.error = true;
+          this.errors = error.response;
         });
     },
     createUser: function () {
@@ -38,7 +40,8 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.errors = error.response.data.errors;
+          this.error = true;
+          this.errors = error.response;
         });
       setTimeout(() => {
         this.success = false;
@@ -93,10 +96,8 @@ export default {
     </form>
     <br />
     <div v-if="success" class="alert alert-success fade show col-12" role="alert">User Created Successfully!</div>
+    <div v-if="error" class="alert alert-danger fade show col-12" role="alert">{{ errors.statusText }}</div>
     <br />
-    <ul>
-      <li v-for="error in errors" v-bind:key="error">Error: {{ error }}</li>
-    </ul>
   </div>
 </template>
 
